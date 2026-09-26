@@ -46,7 +46,22 @@ Render will automatically read `render.yaml` from your repository, install depen
 
 ---
 
-## ⚡ Option 2: 24/7 Cloud Hosting on Railway
+## ⚡ Option 2: 1-Click Serverless Cloud on Vercel (Fastest & Zero Sleep)
+
+Vercel provides free, high-speed edge hosting that **never goes to sleep** and requires **zero configuration**:
+
+### 1-Click Deploy:
+👉 **[Deploy CampusFind on Vercel](https://vercel.com/new/clone?repository-url=https://github.com/sujalraj-144/CampusFind)**
+
+1. Sign in with GitHub (`sujalraj-144`).
+2. Click **Create** / **Deploy**.
+3. In ~25 seconds, your Flask backend & SPA are live at a permanent URL:  
+   👉 `https://campusfind.vercel.app` (or `https://campusfind-tkrcet.vercel.app`).
+4. Runs 24/7 forever, even when your laptop is turned off!
+
+---
+
+## 🚂 Option 3: 24/7 Cloud Hosting on Railway
 
 Railway gives you an instant cloud URL and persistent storage.
 
