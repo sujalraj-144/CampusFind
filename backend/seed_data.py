@@ -1,9 +1,10 @@
-﻿# TKRCET CampusFind Seed Data Script
+# TKRCET CampusFind Seed Data Script
 # TKR College of Engineering & Technology, Hyderabad
 import sqlite3
 import os
 
-db_path = 'campusfind.db'
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+db_path = os.path.join(BASE_DIR, "campusfind.db")
 if os.path.exists(db_path):
     try:
         os.remove(db_path)

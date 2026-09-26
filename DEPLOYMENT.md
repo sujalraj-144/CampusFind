@@ -1,4 +1,4 @@
-﻿# 🌐 CampusFind 2.0 — 24/7 Cloud Deployment Guide
+# 🌐 CampusFind 2.0 — 24/7 Cloud Deployment Guide
 
 This guide explains how to deploy **CampusFind** to the cloud so it is accessible **24/7 from anywhere** on students\' smartphones, laptops, and college Wi-Fi, along with full **PWA offline support**.
 
@@ -6,32 +6,43 @@ This guide explains how to deploy **CampusFind** to the cloud so it is accessibl
 
 ## 🚀 Option 1: Free 24/7 Cloud Hosting on Render (Recommended)
 
-Render offers free web service hosting for Python/Flask apps with automatic SSL (HTTPS).
+Render offers free web service hosting for Python/Flask applications with automatic free SSL (HTTPS) certificates and continuous deployment from GitHub.
 
-### Steps:
-1. **Push your code to GitHub**:
-   ```bash
-   git init
-   git add .
-   git commit -m "CampusFind 2.0 Release"
-   git remote add origin https://github.com/<your-username>/campusfind.git
-   git push -u origin main
-   ```
+### 🌟 Method A: 1-Click Instant Blueprint Deploy
+Click this link to deploy immediately without manual typing:
 
-2. **Deploy on Render**:
-   - Go to [render.com](https://render.com) and sign in with GitHub.
-   - Click **New +** ➔ **Web Service**.
-   - Connect your `campusfind` GitHub repository.
-   - Fill in:
-     - **Name**: `campusfind`
-     - **Environment**: `Python 3`
-     - **Build Command**: `pip install -r requirements.txt && python backend/seed_data.py`
-     - **Start Command**: `gunicorn wsgi:app --workers=3 --timeout=120`
-   - Click **Create Web Service**.
+👉 **[Deploy CampusFind on Render](https://render.com/deploy?repo=https://github.com/sujalraj-144/CampusFind)**
 
-3. **Your Live 24/7 URL**:
-   In 2 minutes, your website is live at:  
-   👉 `https://campusfind.onrender.com`
+Render will automatically read `render.yaml` from your repository, install dependencies, run seed data, and launch Gunicorn.
+
+---
+
+### 🛠️ Method B: Manual Dashboard Setup
+1. **Sign In**:
+   - Go to [render.com](https://render.com) and click **Sign In with GitHub** (using your `sujalraj-144` account).
+2. **Create New Web Service**:
+   - Click the blue **"New +"** button at the top right ➔ Select **"Web Service"**.
+   - Select **"Build and deploy from a Git repository"** ➔ click **Next**.
+   - Choose `sujalraj-144/CampusFind` from your repository list (or paste `https://github.com/sujalraj-144/CampusFind`).
+3. **Configure Service Details**:
+   - **Name**: `campusfind` (or `tkrcet-campusfind`)
+   - **Region**: `Singapore` (Fastest for Hyderabad / India) or `Frankfurt` / `Oregon`
+   - **Branch**: `main`
+   - **Root Directory**: *(leave blank)*
+   - **Runtime**: `Python 3`
+   - **Build Command**: `pip install -r requirements.txt && python backend/seed_data.py`
+   - **Start Command**: `gunicorn wsgi:app --workers=2 --timeout=120`
+   - **Instance Type**: Select **"Free"** ($0/month)
+4. **Deploy**:
+   - Click **"Deploy Web Service"**.
+   - Render will build the container, install packages, initialize the SQLite database, and launch the WSGI server.
+5. **Your Permanent 24/7 Live URL**:
+   Within 2-3 minutes, your application will be live at:
+   👉 **`https://campusfind.onrender.com`** (or `https://tkrcet-campusfind.onrender.com`)
+
+> [!TIP]
+> **Prevent Free Tier Sleep (Cold Starts)**:
+> Render's free tier spins down after 15 minutes of inactivity. To keep it warm 24/7 for judges, set up a free 5-minute ping on [UptimeRobot.com](https://uptimerobot.com) targeting your `/api/health` endpoint (e.g. `https://campusfind.onrender.com/api/health`).
 
 ---
 

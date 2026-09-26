@@ -8,7 +8,20 @@ DB_PATH = os.path.join(BASE_DIR, "campusfind.db")
 
 app = Flask(__name__, static_folder=BASE_DIR)
 
+def ensure_db_initialized():
+    if not os.path.exists(DB_PATH) or os.path.getsize(DB_PATH) == 0:
+        print("[CampusFind] Database missing or empty. Auto-initializing with seed data...")
+        try:
+            seed_script = os.path.join(os.path.dirname(__file__), "seed_data.py")
+            import subprocess
+            subprocess.run(["python", seed_script], check=True)
+        except Exception as e:
+            print("[CampusFind] Auto-seed error:", e)
+
+ensure_db_initialized()
+
 def get_db():
+    ensure_db_initialized()
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
