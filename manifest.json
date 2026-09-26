@@ -1,8 +1,9 @@
-﻿{
+{
   "name": "CampusFind - Campus Lost & Found",
   "short_name": "CampusFind",
   "description": "Lost something? Find it on campus. Official university lost and found platform.",
-  "start_url": "/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#070b14",
   "theme_color": "#070b14",
@@ -10,7 +11,7 @@
   "categories": ["education", "utilities", "productivity"],
   "icons": [
     {
-      "src": "/assets/icon.svg",
+      "src": "assets/icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
@@ -19,17 +20,17 @@
   "shortcuts": [
     {
       "name": "Report Lost Item",
-      "url": "/#report-lost",
+      "url": "./#report-lost",
       "description": "Quickly file a report for a lost campus item"
     },
     {
       "name": "Report Found Item",
-      "url": "/#report-found",
+      "url": "./#report-found",
       "description": "Log an item found on campus into safe custody"
     },
     {
       "name": "Search Items",
-      "url": "/#browse",
+      "url": "./#browse",
       "description": "Browse live campus lost and found inventory"
     }
   ]

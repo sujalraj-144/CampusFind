@@ -2,19 +2,19 @@
  * CampusFind Service Worker (PWA & Offline Cache)
  * CampusFind 2.0 - SIH Showcase
  */
-const CACHE_NAME = 'campusfind-tkrcet-v3';
+const CACHE_NAME = 'campusfind-tkrcet-v4';
 
 const STATIC_ASSETS = [
-    '/',
-    '/index.html',
-    '/css/styles.css',
-    '/js/app.js',
-    '/js/store.js',
-    '/js/matching.js',
-    '/js/demo-story.js',
-    '/js/sync-manager.js',
-    '/manifest.json',
-    '/assets/icon.svg'
+    './',
+    './index.html',
+    './css/styles.css',
+    './js/app.js',
+    './js/store.js',
+    './js/matching.js',
+    './js/demo-story.js',
+    './js/sync-manager.js',
+    './manifest.json',
+    './assets/icon.svg'
 ];
 
 // Install: Cache critical assets

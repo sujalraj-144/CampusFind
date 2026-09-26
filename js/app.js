@@ -51,7 +51,7 @@ window.App = {
 
     setupPWA() {
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/service-worker.js')
+            navigator.serviceWorker.register('service-worker.js')
                 .then(reg => console.log('[CampusFind PWA] Service Worker active:', reg.scope))
                 .catch(err => console.log('[CampusFind PWA] Service Worker reg failed:', err));
         }
